@@ -45,5 +45,5 @@ variable "create_records" {
 variable "record" {
   description = "A list of records to create"
   type        = any
-  default     = []
+  default     = {}
 }
