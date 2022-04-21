@@ -42,7 +42,7 @@ No modules.
 | <a name="input_force_destroy"></a> [force\_destroy](#input\_force\_destroy) | (Optional) Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone. | `bool` | `true` | no |
 | <a name="input_name"></a> [name](#input\_name) | (Required) This is the name of the hosted zone. | `string` | n/a | yes |
 | <a name="input_other_tags"></a> [other\_tags](#input\_other\_tags) | For adding an additional values for tags | `map(string)` | `{}` | no |
-| <a name="input_record"></a> [record](#input\_record) | A list of records to create | `any` | `[]` | no |
+| <a name="input_record"></a> [record](#input\_record) | A list of records to create | `any` | `{}` | no |
 | <a name="input_vpc"></a> [vpc](#input\_vpc) | (Optional) Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the delegation\_set\_id | `any` | `[]` | no |
 
 ## Outputs

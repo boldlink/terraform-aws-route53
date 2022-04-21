@@ -16,14 +16,14 @@ module "route53" {
 
   create_records = true
   record = {
-   alias=  {
-      name = "test"
-      type = "A"
-      ttl  = "3600"
-      records        = ["10.10.10.10",]
+    alias = {
+      name    = "test"
+      type    = "A"
+      ttl     = "3600"
+      records = ["10.10.10.10", ]
     },
 
- cname={
+    cname = {
       name = "www"
       type = "CNAME"
       ttl  = "5"
@@ -36,12 +36,11 @@ module "route53" {
       records        = ["live.example.com"]
     }
   }
-  
+
 }
 
 output "route53" {
   value = [
     module.route53,
   ]
-
 }
