@@ -23,7 +23,7 @@ resource "aws_route53_zone" "this" {
 # Route53 records
 
 resource "aws_route53_record" "this" {
-  for_each                         = var.record 
+  for_each                         = var.create_records ? var.record : null
   zone_id                          = aws_route53_zone.this.zone_id
   name                             = each.key
   type                             = lookup(each.value, "type")
