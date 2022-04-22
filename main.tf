@@ -7,7 +7,7 @@ resource "aws_route53_zone" "this" {
     for_each = var.vpc
     content {
       vpc_id = vpc.value.vpc_id
-      #vpc_region = lookup(vpc.value, "vpc_region", null)
+      vpc_region = lookup(vpc.value, "vpc_region", null)
     }
   }
 
