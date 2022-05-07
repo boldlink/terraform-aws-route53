@@ -1,4 +1,5 @@
-[![Build Status](https://github.com/boldlink/terraform-aws-route53/action/workflows/pre-commit/badge.svg)](https://github.com/boldlink/terraform-aws-route53/actions)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/boldlink/terraform-aws-route53)
+
 
 ## Description
 This Terraform module Manages Route53 resources.
