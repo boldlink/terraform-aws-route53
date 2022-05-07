@@ -1,3 +1,5 @@
+[![Build Status](https://github.com/boldlink/terraform-aws-route53/action/workflows/pre-commit/badge.svg)](https://github.com/boldlink/terraform-aws-route53/action/actions)
+
 ## Description
 This Terraform module Manages Route53 resources.
 
@@ -13,7 +15,9 @@ Example(s) available [here](https://github.com/boldlink/terraform-aws-route53/tr
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
 
 ## Providers
 
