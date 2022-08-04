@@ -6,7 +6,7 @@ resource "aws_route53_zone" "this" {
   dynamic "vpc" {
     for_each = var.vpc
     content {
-      vpc_id = vpc.value.vpc_id
+      vpc_id     = vpc.value.vpc_id
       vpc_region = lookup(vpc.value, "vpc_region", null)
     }
   }
@@ -21,7 +21,6 @@ resource "aws_route53_zone" "this" {
 }
 
 # Route53 records
-
 resource "aws_route53_record" "this" {
   for_each                         = var.create_records ? var.record : null
   zone_id                          = aws_route53_zone.this.zone_id
