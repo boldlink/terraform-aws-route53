@@ -3,7 +3,6 @@ locals {
 }
 
 module "minimum_route53" {
-  source         = "../../"
-  name           = local.name
-  create_records = true
+  source = "../../"
+  name   = local.name
 }

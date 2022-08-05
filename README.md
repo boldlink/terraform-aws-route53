@@ -11,14 +11,9 @@ Example(s) available [here](https://github.com/boldlink/terraform-aws-route53/tr
 *NOTE*: These examples use the latest version of this module
 
 ```console
-locals {
-  name = "boldlink-minimum-r53-example.com"
-}
-
 module "minimum_route53" {
-  source         = "../../"
+  source         = "boldlink/r53/aws"
   name           = local.name
-  create_records = true
 }
 ```
 
@@ -58,13 +53,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_create_records"></a> [create\_records](#input\_create\_records) | Whether or not to create record(s) | `bool` | `false` | no |
 | <a name="input_delegation_set_id"></a> [delegation\_set\_id](#input\_delegation\_set\_id) | (Optional) The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with vpc as delegation sets can only be used for public zones. | `string` | `null` | no |
-| <a name="input_environment"></a> [environment](#input\_environment) | The environment this resource is being deployed to | `string` | `null` | no |
 | <a name="input_force_destroy"></a> [force\_destroy](#input\_force\_destroy) | (Optional) Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone. | `bool` | `true` | no |
 | <a name="input_name"></a> [name](#input\_name) | (Required) This is the name of the hosted zone. | `string` | n/a | yes |
-| <a name="input_other_tags"></a> [other\_tags](#input\_other\_tags) | For adding an additional values for tags | `map(string)` | `{}` | no |
-| <a name="input_record"></a> [record](#input\_record) | A list of records to create | `any` | `{}` | no |
+| <a name="input_records"></a> [records](#input\_records) | A list of records to create | `any` | `[]` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Key-value values for tags | `map(string)` | `{}` | no |
 | <a name="input_vpc"></a> [vpc](#input\_vpc) | (Optional) Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the delegation\_set\_id | `any` | `[]` | no |
 
 ## Outputs

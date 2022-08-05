@@ -18,27 +18,24 @@ module "route53" {
     }
   ]
 
-  create_records = true
-  record = {
-    alias = {
+  records = [
+    {
       name    = "test"
       type    = "A"
       ttl     = "3600"
-      records = ["10.10.10.10", ]
+      records = ["10.10.10.10"]
     },
-    cname = {
+    {
       name = "www"
       type = "CNAME"
       ttl  = "5"
 
-      weighted_routing_policy = [
-        {
-          weight = 90
-        }
-      ]
+      weighted_routing_policy = {
+        weight = 90
+      }
 
       set_identifier = "live"
       records        = ["live.example.com"]
     }
-  }
+  ]
 }
