@@ -38,4 +38,6 @@ module "route53" {
       records        = ["live.example.com"]
     }
   ]
+
+  tags = local.tags
 }

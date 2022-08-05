@@ -17,6 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feat: Public Zone and public subdomain zones in complete example
 - feat: Ability to add create_records using `count` or `for_each`
 - feat: showcase usage of `route53_record` polices in example, e.g `failover_routing_policy`
+- feat: showcase routing with a static website hosted in an s3 bucket
+- feat: showcase in example alias usage with load balancer
 
 ## [1.0.1] - 2022-08-04
 ### Description

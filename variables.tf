@@ -23,7 +23,7 @@ variable "vpc" {
 
 #Tags
 variable "tags" {
-  description = "Key-value values for tags"
+  description = "A map of tags to assign to the zone"
   type        = map(string)
   default     = {}
 }
