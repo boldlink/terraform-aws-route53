@@ -22,28 +22,14 @@ variable "vpc" {
 }
 
 #Tags
-variable "environment" {
-  type        = string
-  description = "The environment this resource is being deployed to"
-  default     = null
-}
-
-variable "other_tags" {
-  description = "For adding an additional values for tags"
+variable "tags" {
+  description = "A map of tags to assign to the zone"
   type        = map(string)
   default     = {}
 }
 
-# Records
-
-variable "create_records" {
-  description = "Whether or not to create record(s)"
-  type        = bool
-  default     = false
-}
-
-variable "record" {
+variable "records" {
   description = "A list of records to create"
   type        = any
-  default     = {}
+  default     = []
 }
