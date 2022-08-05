@@ -12,7 +12,7 @@ Example(s) available [here](https://github.com/boldlink/terraform-aws-route53/tr
 
 ```console
 module "minimum_route53" {
-  source         = "boldlink/r53/aws"
+  source         = "boldlink/route53/aws"
   name           = local.name
 }
 ```
