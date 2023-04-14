@@ -12,7 +12,16 @@
 ## Description
 This Terraform module Manages Route53 resources.
 
-Example(s) available [here](https://github.com/boldlink/terraform-aws-route53/tree/main/examples)
+### Why choose this module over the standard resources
+- Default and custom configurations included in this module have been validated by Checkov. This ensures that the configurations adhere to best practices and security standards, reducing the risk of misconfiguration and security vulnerabilities.
+
+- This module has elaborate examples that you can use to setup your route53 zones and records within a very short time.
+
+Example(s) available [here](./examples)
+
+
+### Query logging
+- There are restrictions on the configuration of query logging. Notably, the CloudWatch log group must be in the us-east-1 region, a permissive CloudWatch log resource policy must be in place, and the Route53 hosted zone must be public. See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
 
 ## Usage
 *NOTE*: These examples use the latest version of this module
@@ -20,7 +29,7 @@ Example(s) available [here](https://github.com/boldlink/terraform-aws-route53/tr
 ```console
 module "minimum_route53" {
   source         = "boldlink/route53/aws"
-  name           = local.name
+  name           = var.name
 }
 ```
 
@@ -98,4 +107,4 @@ The makefile contained in this repo is optimized for linux paths and the main pu
 * Clean all tests:
 `$ make clean`
 
-#### BOLDLink-SIG 2022
+#### BOLDLink-SIG 2023
