@@ -1,5 +1,5 @@
 module "minimum_route53" {
   source = "../../"
-  name   = local.name
-  tags   = local.tags
+  name   = var.name
+  tags   = var.tags
 }
