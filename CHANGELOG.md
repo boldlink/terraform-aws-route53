@@ -9,7 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feat: add route53 health check
 - feat: aws route53 hosted zone dnssec
 - feat: aws route53 key signing key
-- feat: aws route53 query log
 - feat: aws route53 traffic policy
 - feat: aws route53 traffic policy instance
 - feat: aws route53 vpc association authorization
@@ -19,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feat: showcase usage of `route53_record` polices in example, e.g `failover_routing_policy`
 - feat: showcase routing with a static website hosted in an s3 bucket
 - feat: showcase in example alias usage with load balancer
+
+## [1.0.2] - 2023-04-14
+### Description
+- fix: CKV2_AWS_39: "Ensure Domain Name System (DNS) query logging is enabled for Amazon Route 53 hosted zones"
 
 ## [1.0.1] - 2022-08-04
 ### Description
@@ -35,7 +38,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial commit
 - feat: Route53 zone & records
 
-[Unreleased]: https://github.com/boldlink/terraform-aws-route53/compare/1.0.1...HEAD
-
-[1.0.0]: https://github.com/boldlink/terraform-aws-route53/releases/tag/1.0.0
+[Unreleased]: https://github.com/boldlink/terraform-aws-route53/compare/1.0.2...HEAD
+[1.0.2]: https://github.com/boldlink/terraform-aws-route53/releases/tag/1.0.2
 [1.0.1]: https://github.com/boldlink/terraform-aws-route53/releases/tag/1.0.1
+[1.0.0]: https://github.com/boldlink/terraform-aws-route53/releases/tag/1.0.0
+
