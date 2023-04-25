@@ -52,8 +52,8 @@ module "minimum_route53" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.10.0 |
-| <a name="provider_aws.us-east-1"></a> [aws.us-east-1](#provider\_aws.us-east-1) | 4.10.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.64.0 |
+| <a name="provider_aws.us-east-1"></a> [aws.us-east-1](#provider\_aws.us-east-1) | 4.64.0 |
 
 ## Modules
 
