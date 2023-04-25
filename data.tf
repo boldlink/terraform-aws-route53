@@ -2,7 +2,7 @@ data "aws_partition" "current" {}
 
 data "aws_caller_identity" "current" {}
 
-data "aws_iam_policy_document" "route53-query-logging-policy" {
+data "aws_iam_policy_document" "route53_query_logging_policy" {
   statement {
     actions = [
       "logs:CreateLogStream",
