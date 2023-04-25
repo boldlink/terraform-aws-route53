@@ -19,7 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feat: showcase routing with a static website hosted in an s3 bucket
 - feat: showcase in example alias usage with load balancer
 
-## [1.0.2] - 2023-04-14
+
+## [1.0.2] - 2023-04-25
 ### Description
 - fix: CKV2_AWS_39: "Ensure Domain Name System (DNS) query logging is enabled for Amazon Route 53 hosted zones"
 
@@ -42,4 +43,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.0.2]: https://github.com/boldlink/terraform-aws-route53/releases/tag/1.0.2
 [1.0.1]: https://github.com/boldlink/terraform-aws-route53/releases/tag/1.0.1
 [1.0.0]: https://github.com/boldlink/terraform-aws-route53/releases/tag/1.0.0
-
