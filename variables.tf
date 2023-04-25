@@ -47,12 +47,6 @@ variable "retention_in_days" {
   default     = 30
 }
 
-variable "skip_destroy" {
-  description = "Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the Terraform state."
-  type        = bool
-  default     = false
-}
-
 variable "kms_key_id" {
   description = "The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires permissions for the CMK whenever the encrypted data is requested."
   type        = string

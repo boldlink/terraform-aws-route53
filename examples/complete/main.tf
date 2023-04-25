@@ -1,8 +1,8 @@
 module "r53_vpc" {
-  source               = "boldlink/vpc/aws"
-  version              = "3.0.3"
-  name                 = "${var.name}-vpc"
-  cidr_block           = var.cidr_block
+  source                = "boldlink/vpc/aws"
+  version               = "3.0.3"
+  name                  = "${var.name}-vpc"
+  cidr_block            = var.cidr_block
   enable_public_subnets = var.enable_public_subnets
   tags                  = var.tags
 
@@ -24,6 +24,6 @@ module "route53" {
     }
   ]
 
-  records = var.records 
-  tags = var.tags
+  records = var.records
+  tags    = var.tags
 }

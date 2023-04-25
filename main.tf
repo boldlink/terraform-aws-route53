@@ -80,7 +80,7 @@ resource "aws_cloudwatch_log_group" "main" {
 resource "aws_cloudwatch_log_resource_policy" "main" {
   count           = length(var.vpc) == 0 ? 1 : 0
   provider        = aws.us-east-1
-  policy_document = data.aws_iam_policy_document.route53-query-logging-policy.json
+  policy_document = data.aws_iam_policy_document.route53_query_logging_policy.json
   policy_name     = "${var.name}-query-logging-policy"
 }
 

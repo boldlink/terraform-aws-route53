@@ -1,7 +1,7 @@
 variable "name" {
   description = "(Required) This is the name of the hosted zone."
   type        = string
-  default = "boldlink-complete-example.com"
+  default     = "boldlink-complete-example.com"
 }
 
 variable "cidr_block" {
@@ -38,7 +38,7 @@ variable "tags" {
 
 variable "records" {
   description = "(Required for non-alias records) A string list of records."
-  type = any
+  type        = any
   default = [
     {
       name    = "test"
@@ -58,5 +58,5 @@ variable "records" {
       set_identifier = "live"
       records        = ["live.example.com"]
     }
-  ]  
+  ]
 }
