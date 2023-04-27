@@ -44,7 +44,7 @@ No resources.
 | <a name="input_map_public_ip_on_launch"></a> [map\_public\_ip\_on\_launch](#input\_map\_public\_ip\_on\_launch) | Whether assign public IPs by default to instances launched on subnet | `bool` | `true` | no |
 | <a name="input_name"></a> [name](#input\_name) | (Required) This is the name of the hosted zone. | `string` | `"boldlink-complete-example.com"` | no |
 | <a name="input_records"></a> [records](#input\_records) | (Required for non-alias records) A string list of records. | `any` | <pre>[<br>  {<br>    "name": "test",<br>    "records": [<br>      "10.10.10.10"<br>    ],<br>    "ttl": "3600",<br>    "type": "A"<br>  },<br>  {<br>    "name": "www",<br>    "records": [<br>      "live.example.com"<br>    ],<br>    "set_identifier": "live",<br>    "ttl": "5",<br>    "type": "CNAME",<br>    "weighted_routing_policy": {<br>      "weight": 90<br>    }<br>  }<br>]</pre> | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to the created resources | `map(string)` | <pre>{<br>  "Department": "DevOps",<br>  "Environment": "examples",<br>  "LayerId": "Example",<br>  "LayerName": "Example",<br>  "Owner": "Boldlink",<br>  "Project": "Examples",<br>  "user::CostCenter": "terraform-registry"<br>}</pre> | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to the created resources | `map(string)` | <pre>{<br>  "Department": "DevOps",<br>  "Environment": "examples",<br>  "LayerId": "Example",<br>  "LayerName": "Example",<br>  "Owner": "hugo.almeida",<br>  "Project": "Examples",<br>  "user::CostCenter": "terraform-registry"<br>}</pre> | no |
 
 ## Outputs
 

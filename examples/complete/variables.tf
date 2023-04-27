@@ -30,7 +30,7 @@ variable "tags" {
     "user::CostCenter" = "terraform-registry"
     Department         = "DevOps"
     Project            = "Examples"
-    Owner              = "Boldlink"
+    Owner              = "hugo.almeida"
     LayerName          = "Example"
     LayerId            = "Example"
   }
