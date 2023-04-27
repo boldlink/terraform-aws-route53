@@ -1,7 +1,7 @@
-resource "aws_route53_zone" "this" {
+resource "aws_route53_zone" "main" {
   name              = var.name
-  comment           = "Route53 hosted zone"
-  delegation_set_id = var.vpc == null ? var.delegation_set_id : null
+  comment           = var.comment
+  delegation_set_id = length(var.vpc) == 0 ? var.delegation_set_id : null
   force_destroy     = var.force_destroy
 
   dynamic "vpc" {
@@ -16,9 +16,9 @@ resource "aws_route53_zone" "this" {
 }
 
 # Route53 records
-resource "aws_route53_record" "this" {
+resource "aws_route53_record" "main" {
   count                            = length(var.records)
-  zone_id                          = aws_route53_zone.this.zone_id
+  zone_id                          = aws_route53_zone.main.zone_id
   name                             = try(var.records[count.index]["name"], null)
   type                             = try(var.records[count.index]["type"], null)
   ttl                              = try(var.records[count.index]["ttl"], 300)
@@ -66,4 +66,27 @@ resource "aws_route53_record" "this" {
       weight = lookup(weighted_routing_policy.value, "weight", null)
     }
   }
+}
+
+resource "aws_cloudwatch_log_group" "main" {
+  count             = length(var.vpc) == 0 ? 1 : 0
+  provider          = aws.us-east-1
+  name              = "/aws/route53/${var.name}"
+  retention_in_days = var.retention_in_days
+  kms_key_id        = var.kms_key_id
+  tags              = var.tags
+}
+
+resource "aws_cloudwatch_log_resource_policy" "main" {
+  count           = length(var.vpc) == 0 ? 1 : 0
+  provider        = aws.us-east-1
+  policy_document = data.aws_iam_policy_document.route53_query_logging_policy.json
+  policy_name     = "${var.name}-query-logging-policy"
+}
+
+resource "aws_route53_query_log" "main" {
+  count                    = length(var.vpc) == 0 ? 1 : 0
+  cloudwatch_log_group_arn = aws_cloudwatch_log_group.main[0].arn
+  zone_id                  = aws_route53_zone.main.zone_id
+  depends_on               = [aws_cloudwatch_log_resource_policy.main]
 }

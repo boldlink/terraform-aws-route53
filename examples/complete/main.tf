@@ -1,43 +1,29 @@
 module "r53_vpc" {
-  source               = "git::https://github.com/boldlink/terraform-aws-vpc.git?ref=2.0.3"
-  name                 = "${local.name}-vpc"
-  account              = local.account_id
-  region               = local.region
-  cidr_block           = local.cidr_block
-  enable_dns_support   = true
-  enable_dns_hostnames = true
-  tags                 = local.tags
+  source                = "boldlink/vpc/aws"
+  version               = "3.0.3"
+  name                  = "${var.name}-vpc"
+  cidr_block            = var.cidr_block
+  enable_public_subnets = var.enable_public_subnets
+  tags                  = var.tags
+
+  public_subnets = {
+    public = {
+      cidrs                   = local.public_subnets
+      map_public_ip_on_launch = var.map_public_ip_on_launch
+    }
+  }
 }
 
 module "route53" {
   source = "../../"
-  name   = local.name
+  name   = var.name
+
   vpc = [
     {
-      vpc_id = module.r53_vpc.id
+      vpc_id = module.r53_vpc.vpc_id
     }
   ]
 
-  records = [
-    {
-      name    = "test"
-      type    = "A"
-      ttl     = "3600"
-      records = ["10.10.10.10"]
-    },
-    {
-      name = "www"
-      type = "CNAME"
-      ttl  = "5"
-
-      weighted_routing_policy = {
-        weight = 90
-      }
-
-      set_identifier = "live"
-      records        = ["live.example.com"]
-    }
-  ]
-
-  tags = local.tags
+  records = var.records
+  tags    = var.tags
 }

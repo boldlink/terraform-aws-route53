@@ -22,27 +22,29 @@
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.63.0 |
+No providers.
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_r53_vpc"></a> [r53\_vpc](#module\_r53\_vpc) | git::https://github.com/boldlink/terraform-aws-vpc.git | 2.0.3 |
+| <a name="module_r53_vpc"></a> [r53\_vpc](#module\_r53\_vpc) | boldlink/vpc/aws | 3.0.3 |
 | <a name="module_route53"></a> [route53](#module\_route53) | ../../ | n/a |
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
-| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
+No resources.
 
 ## Inputs
 
-No inputs.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_cidr_block"></a> [cidr\_block](#input\_cidr\_block) | VPC CIDR | `string` | `"10.1.0.0/16"` | no |
+| <a name="input_enable_public_subnets"></a> [enable\_public\_subnets](#input\_enable\_public\_subnets) | Whether to enable public subnets | `bool` | `true` | no |
+| <a name="input_map_public_ip_on_launch"></a> [map\_public\_ip\_on\_launch](#input\_map\_public\_ip\_on\_launch) | Whether assign public IPs by default to instances launched on subnet | `bool` | `true` | no |
+| <a name="input_name"></a> [name](#input\_name) | (Required) This is the name of the hosted zone. | `string` | `"boldlink-complete-example.com"` | no |
+| <a name="input_records"></a> [records](#input\_records) | (Required for non-alias records) A string list of records. | `any` | <pre>[<br>  {<br>    "name": "test",<br>    "records": [<br>      "10.10.10.10"<br>    ],<br>    "ttl": "3600",<br>    "type": "A"<br>  },<br>  {<br>    "name": "www",<br>    "records": [<br>      "live.example.com"<br>    ],<br>    "set_identifier": "live",<br>    "ttl": "5",<br>    "type": "CNAME",<br>    "weighted_routing_policy": {<br>      "weight": 90<br>    }<br>  }<br>]</pre> | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to the created resources | `map(string)` | <pre>{<br>  "Department": "DevOps",<br>  "Environment": "examples",<br>  "LayerId": "Example",<br>  "LayerName": "Example",<br>  "Owner": "hugo.almeida",<br>  "Project": "Examples",<br>  "user::CostCenter": "terraform-registry"<br>}</pre> | no |
 
 ## Outputs
 
@@ -62,4 +64,4 @@ This repository uses third party software:
   * Install with `brew install tflint`
   * Manually use via pre-commit
 
-#### BOLDLink-SIG 2022
+#### BOLDLink-SIG 2023
