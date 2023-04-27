@@ -23,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0] - 2023-04-25
 ### Description
 - feat: aws cloudwatch log group resource for DNS query logging.
-- feat: aws clodwatch log resource policy.
+- feat: aws cloudwatch log resource policy.
 - feat: aws Route53 query log resource.
 - fix: CKV2_AWS_39: "Ensure Domain Name System (DNS) query logging is enabled for Amazon Route 53 hosted zones"
 - moved static values to variables.tf file in examples.
