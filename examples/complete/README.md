@@ -29,7 +29,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_r53_vpc"></a> [r53\_vpc](#module\_r53\_vpc) | boldlink/vpc/aws | 3.0.3 |
+| <a name="module_r53_vpc"></a> [r53\_vpc](#module\_r53\_vpc) | boldlink/vpc/aws | 3.0.4 |
 | <a name="module_route53"></a> [route53](#module\_route53) | ../../ | n/a |
 
 ## Resources
