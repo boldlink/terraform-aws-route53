@@ -6,7 +6,6 @@ on:
     - opened
     - reopened
 
-
 jobs:
   auto-merge:
     uses: boldlink/terraform-module-support/.github/workflows/auto-merge.yaml@main
