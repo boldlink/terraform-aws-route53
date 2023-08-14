@@ -6,7 +6,6 @@ on:
     - opened
     - reopened
 
-permissions: write
 
 jobs:
   auto-merge:
