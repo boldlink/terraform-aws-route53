@@ -18,6 +18,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feat: showcase usage of `route53_record` policies in example, e.g `failover_routing_policy`
 - feat: showcase routing with a static website hosted in an s3 bucket
 - feat: showcase in example alias usage with load balancer
+- fix: CKV2_AWS_38 "Ensure Domain Name System Security Extensions (DNSSEC) signing is enabled for Amazon Route 53 public hosted zones"
+- fix: CKV_AWS_338 Ensure CloudWatch log groups retains logs for at least 1 year
+
+## [1.1.2] - 2023.-08-21
+- fix: added `CKV_AWS_338` to `.checkov.yaml` file
 
 ## [1.1.1] - 2023-08-14
 ### Description
@@ -46,7 +51,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial commit
 - feat: Route53 zone & records
 
-[Unreleased]: https://github.com/boldlink/terraform-aws-route53/compare/1.0.1...HEAD
+[Unreleased]: https://github.com/boldlink/terraform-aws-route53/compare/1.1.2...HEAD
+
+[1.1.2]: https://github.com/boldlink/terraform-aws-route53/releases/tag/1.1.2
 [1.1.1]: https://github.com/boldlink/terraform-aws-route53/releases/tag/1.1.1
 [1.1.0]: https://github.com/boldlink/terraform-aws-route53/releases/tag/1.1.0
 [1.0.1]: https://github.com/boldlink/terraform-aws-route53/releases/tag/1.0.1

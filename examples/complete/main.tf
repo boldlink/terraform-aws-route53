@@ -1,6 +1,5 @@
 module "r53_vpc" {
   #checkov:skip=CKV_TF_1:Ensure Terraform module sources use a commit hash
-  #checkov:skip=CKV_AWS_338:Ensure CloudWatch log groups retains logs for at least 1 year
   source                = "boldlink/vpc/aws"
   version               = "3.0.4"
   name                  = "${var.name}-vpc"
