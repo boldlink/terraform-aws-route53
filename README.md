@@ -26,11 +26,12 @@ Example(s) available [here](./examples)
 - There are restrictions on the configuration of query logging. Notably, the CloudWatch log group must be in the us-east-1 region, a permissive CloudWatch log resource policy must be in place, and the Route53 hosted zone must be public. See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
 
 ## Usage
-*NOTE*: These examples use the latest version of this module
+**NOTE**: These examples use the latest version of this module
 
-```console
+```hcl
 module "minimum_route53" {
   source         = "boldlink/route53/aws"
+  version        = "<provide_latest_version_here>"
   name           = var.name
 }
 ```
@@ -54,8 +55,8 @@ module "minimum_route53" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.13.1 |
-| <a name="provider_aws.us-east-1"></a> [aws.us-east-1](#provider\_aws.us-east-1) | 5.13.1 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.21.0 |
+| <a name="provider_aws.us-east-1"></a> [aws.us-east-1](#provider\_aws.us-east-1) | 5.21.0 |
 
 ## Modules
 

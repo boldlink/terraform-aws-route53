@@ -21,8 +21,8 @@ resource "aws_route53_record" "main" {
   zone_id                          = aws_route53_zone.main.zone_id
   name                             = try(var.records[count.index]["name"], null)
   type                             = try(var.records[count.index]["type"], null)
-  ttl                              = try(var.records[count.index]["ttl"], 300)
-  records                          = try(var.records[count.index]["records"], [])
+  ttl                              = try([var.records[count.index]["alias"]], []) != [] ? null : try(var.records[count.index]["ttl"], 300)
+  records                          = length(keys(lookup(var.records[count.index], "alias", {}))) > 0 ? null : lookup(var.records[count.index], "records", [])
   set_identifier                   = try(var.records[count.index]["set_identifier"], null)
   health_check_id                  = try(var.records[count.index]["health_check_id"], null)
   multivalue_answer_routing_policy = try(var.records[count.index]["multivalue_answer_routing_policy"], null)
@@ -31,37 +31,37 @@ resource "aws_route53_record" "main" {
   dynamic "alias" {
     for_each = try([var.records[count.index]["alias"]], [])
     content {
-      name                   = lookup(alias.value, "name")
-      zone_id                = lookup(alias.value, "zone_id")
-      evaluate_target_health = lookup(alias.value, "evaluate_target_health")
+      name                   = try(alias.value.name, null)
+      zone_id                = try(alias.value.zone_id, null)
+      evaluate_target_health = try(alias.value.evaluate_target_health, false)
     }
   }
 
   dynamic "failover_routing_policy" {
-    for_each = try([var.records[count.index]["failover_routing_policy"]], [])
+    for_each = try(var.records[count.index]["multivalue_answer_routing_policy"], null) == null ? try([var.records[count.index]["failover_routing_policy"]], []) : []
     content {
       type = lookup(failover_routing_policy.value, "type", null)
     }
   }
 
   dynamic "geolocation_routing_policy" {
-    for_each = try([var.records[count.index]["geolocation_routing_policy"]], [])
+    for_each = try(var.records[count.index]["multivalue_answer_routing_policy"], null) == null ? try([var.records[count.index]["geolocation_routing_policy"]], []) : []
     content {
-      continent   = lookup(geolocation_routing_policy.value, "continent", null)
-      country     = lookup(geolocation_routing_policy.value, "country", "*")
-      subdivision = lookup(geolocation_routing_policy.value, "subdivision", null)
+      continent   = try(geolocation_routing_policy.value.continent, null)
+      country     = try(geolocation_routing_policy.value.country, null)
+      subdivision = try(geolocation_routing_policy.value.subdivision, null)
     }
   }
 
   dynamic "latency_routing_policy" {
-    for_each = try([var.records[count.index]["latency_routing_policy"]], [])
+    for_each = try(var.records[count.index]["multivalue_answer_routing_policy"], null) == null ? try([var.records[count.index]["latency_routing_policy"]], []) : []
     content {
       region = lookup(latency_routing_policy.value, "region", null)
     }
   }
 
   dynamic "weighted_routing_policy" {
-    for_each = try([var.records[count.index]["weighted_routing_policy"]], [])
+    for_each = try(var.records[count.index]["multivalue_answer_routing_policy"], null) == null ? try([var.records[count.index]["weighted_routing_policy"]], []) : []
     content {
       weight = lookup(weighted_routing_policy.value, "weight", null)
     }

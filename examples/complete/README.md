@@ -23,18 +23,24 @@
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.21.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_fail_over"></a> [fail\_over](#module\_fail\_over) | ../../ | n/a |
+| <a name="module_geo_and_alias"></a> [geo\_and\_alias](#module\_geo\_and\_alias) | ../../ | n/a |
 | <a name="module_r53_vpc"></a> [r53\_vpc](#module\_r53\_vpc) | boldlink/vpc/aws | 3.0.4 |
 | <a name="module_route53"></a> [route53](#module\_route53) | ../../ | n/a |
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [aws_route53_health_check.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_health_check) | resource |
 
 ## Inputs
 
@@ -44,7 +50,7 @@ No resources.
 | <a name="input_enable_public_subnets"></a> [enable\_public\_subnets](#input\_enable\_public\_subnets) | Whether to enable public subnets | `bool` | `true` | no |
 | <a name="input_map_public_ip_on_launch"></a> [map\_public\_ip\_on\_launch](#input\_map\_public\_ip\_on\_launch) | Whether assign public IPs by default to instances launched on subnet | `bool` | `true` | no |
 | <a name="input_name"></a> [name](#input\_name) | (Required) This is the name of the hosted zone. | `string` | `"boldlink-complete-example.com"` | no |
-| <a name="input_records"></a> [records](#input\_records) | (Required for non-alias records) A string list of records. | `any` | <pre>[<br>  {<br>    "name": "test",<br>    "records": [<br>      "10.10.10.10"<br>    ],<br>    "ttl": "3600",<br>    "type": "A"<br>  },<br>  {<br>    "name": "www",<br>    "records": [<br>      "live.example.com"<br>    ],<br>    "set_identifier": "live",<br>    "ttl": "5",<br>    "type": "CNAME",<br>    "weighted_routing_policy": {<br>      "weight": 90<br>    }<br>  }<br>]</pre> | no |
+| <a name="input_records"></a> [records](#input\_records) | (Required for non-alias records) A string list of records. | `any` | <pre>[<br>  {<br>    "name": "test",<br>    "records": [<br>      "10.10.10.10"<br>    ],<br>    "ttl": "3600",<br>    "type": "A"<br>  },<br>  {<br>    "name": "www",<br>    "records": [<br>      "live.example.com"<br>    ],<br>    "set_identifier": "live",<br>    "ttl": "5",<br>    "type": "CNAME",<br>    "weighted_routing_policy": {<br>      "weight": 90<br>    }<br>  },<br>  {<br>    "latency_routing_policy": {<br>      "region": "us-west-2"<br>    },<br>    "name": "latency.example.com",<br>    "records": [<br>      "192.0.2.44"<br>    ],<br>    "set_identifier": "us-west-2",<br>    "ttl": 300,<br>    "type": "A"<br>  },<br>  {<br>    "name": "weighted.example.com",<br>    "records": [<br>      "192.0.2.44"<br>    ],<br>    "set_identifier": "weight-1",<br>    "ttl": 300,<br>    "type": "A",<br>    "weighted_routing_policy": {<br>      "weight": 10<br>    }<br>  }<br>]</pre> | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to the created resources | `map(string)` | <pre>{<br>  "Department": "DevOps",<br>  "Environment": "examples",<br>  "LayerId": "Example",<br>  "LayerName": "Example",<br>  "Owner": "hugo.almeida",<br>  "Project": "Examples",<br>  "user::CostCenter": "terraform-registry"<br>}</pre> | no |
 
 ## Outputs

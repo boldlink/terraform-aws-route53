@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 - feat: add delagation set
+- feat: Add cidr_routing_policy
 - feat: add route53 health check
 - feat: aws route53 hosted zone dnssec
 - feat: aws route53 key signing key
@@ -15,13 +16,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feat: aws route53 zone association
 - feat: Public Zone and public subdomain zones in complete example
 - feat: Ability to add create_records using `count` or `for_each`
-- feat: showcase usage of `route53_record` policies in example, e.g `failover_routing_policy`
 - feat: showcase routing with a static website hosted in an s3 bucket
 - feat: showcase in example alias usage with load balancer
 - fix: CKV2_AWS_38 "Ensure Domain Name System Security Extensions (DNSSEC) signing is enabled for Amazon Route 53 public hosted zones"
 - fix: CKV_AWS_338 Ensure CloudWatch log groups retains logs for at least 1 year
 
-## [1.1.2] - 2023.-08-21
+## [1.1.3] - 2023-10-18
+- fix: conflict with multivalue_answer_routing_policy and other routing policies
+- fix: conflict with records and alias by setting conditions for the arguments
+- feat: showcase usage of `route53_record` policies in complete example
+
+
+## [1.1.2] - 2023-08-21
 - fix: added `CKV_AWS_338` to `.checkov.yaml` file
 
 ## [1.1.1] - 2023-08-14
