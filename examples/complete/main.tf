@@ -40,7 +40,7 @@ resource "aws_route53_health_check" "example" {
 
 module "fail_over" {
   source = "../../"
-  name   = "${var.name}-fail-over"
+  name   = "fail-over.${var.name}"
   records = [
     {
       name            = "failover.example.com"
@@ -58,7 +58,7 @@ module "fail_over" {
 
 module "geo_and_alias" {
   source = "../../"
-  name   = "${var.name}-alias"
+  name   = "alias.${var.name}"
 
   records = [
     {
