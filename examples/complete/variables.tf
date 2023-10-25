@@ -59,7 +59,7 @@ variable "records" {
       records        = ["live.example.com"]
     },
     {
-      name           = "latency.example.com"
+      name           = "latency"
       type           = "A"
       ttl            = 300
       records        = ["192.0.2.44"]
@@ -69,7 +69,7 @@ variable "records" {
       }
     },
     {
-      name           = "weighted.example.com"
+      name           = "weighted"
       type           = "A"
       ttl            = 300
       records        = ["192.0.2.44"]

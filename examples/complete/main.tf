@@ -30,7 +30,7 @@ module "route53" {
 }
 
 resource "aws_route53_health_check" "example" {
-  fqdn              = "example.com"
+  fqdn              = var.name
   port              = 80
   type              = "HTTP"
   resource_path     = "/"
@@ -40,10 +40,10 @@ resource "aws_route53_health_check" "example" {
 
 module "fail_over" {
   source = "../../"
-  name   = "fail-over.${var.name}"
+  name   = "first-example.com"
   records = [
     {
-      name            = "failover.example.com"
+      name            = "failover"
       type            = "A"
       ttl             = 300
       records         = ["192.0.2.44"]
@@ -58,11 +58,11 @@ module "fail_over" {
 
 module "geo_and_alias" {
   source = "../../"
-  name   = "alias.${var.name}"
+  name   = "second-example.com"
 
   records = [
     {
-      name           = "geo.example.com"
+      name           = "geo"
       type           = "A"
       ttl            = 300
       records        = ["192.0.2.44"]
@@ -73,7 +73,7 @@ module "geo_and_alias" {
       }
     },
     {
-      name                             = "example.com"
+      name                             = "multivalue"
       type                             = "A"
       records                          = ["192.0.2.44"]
       allow_overwrite                  = true
@@ -81,7 +81,7 @@ module "geo_and_alias" {
       set_identifier                   = "example-with-multi-value-policy"
     },
     {
-      name = "alias.example.com"
+      name = "alias-s3"
       type = "A"
       alias = {
         name                   = "s3-website-us-west-2.amazonaws.com"
