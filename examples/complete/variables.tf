@@ -57,6 +57,26 @@ variable "records" {
 
       set_identifier = "live"
       records        = ["live.example.com"]
+    },
+    {
+      name           = "latency"
+      type           = "A"
+      ttl            = 300
+      records        = ["192.0.2.44"]
+      set_identifier = "us-west-2"
+      latency_routing_policy = {
+        region = "us-west-2"
+      }
+    },
+    {
+      name           = "weighted"
+      type           = "A"
+      ttl            = 300
+      records        = ["192.0.2.44"]
+      set_identifier = "weight-1"
+      weighted_routing_policy = {
+        weight = 10
+      }
     }
   ]
 }
